@@ -7,83 +7,99 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
-    header { background: #2e7d32; color: white; padding: 15px; text-align: center; }
+    header { background: #2e7d32; color: white; padding: 20px; text-align: center; }
     header img { height: 60px; display:block; margin: 0 auto 10px; }
-    #map { height: 70vh; width: 100%; }
-    .info { padding: 15px; text-align: center; }
-    .controls { text-align:center; margin:10px; }
-    button {
-      padding: 8px 12px;
-      border: none;
-      border-radius: 5px;
-      background: #4caf50;
-      color: white;
-      cursor: pointer;
-      margin: 5px;
-    }
-    button:hover { background: #388e3c; }
+    nav { background:#1b5e20; padding:10px; text-align:center; }
+    nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
+    section { padding: 40px 20px; }
+    .hero { background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952') center/cover; color:white; text-align:center; }
+    .hero h2 { font-size: 2em; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .card { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .card img { width:100%; border-radius:10px; }
+    #map { height: 400px; }
+    footer { background:#2e7d32; color:white; text-align:center; padding:15px; }
   </style>
 </head>
 <body>
 
 <header>
-  <!-- Reemplaza src por tu logo descargado -->
-  <img src="logo.png" alt="ReutiAceite Logo">
+  <img src="logo.png" alt="Logo">
   <h1>ReutiAceite</h1>
-  <p>Encuentra puntos de recolección de aceite usado cerca de ti</p>
+  <p>Reutilización de aceite para un futuro sostenible</p>
 </header>
 
-<div class="controls">
-  <button onclick="mostrarTodos()">Mostrar todos</button>
-  <button onclick="filtrar('Norte')">Norte</button>
-  <button onclick="filtrar('Sur')">Sur</button>
-  <button onclick="filtrar('Centro')">Centro</button>
-</div>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#lugares">Lugares</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#acerca">Acerca de</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
-<div id="map"></div>
+<section id="inicio" class="hero">
+  <h2>🌱 Bienvenido a ReutiAceite</h2>
+  <p>Encuentra puntos de recolección de aceite usado en Bosa Porvenir y ayuda al planeta.</p>
+</section>
 
-<div class="info">
-  <p>🌱 Explora el mapa, encuentra puntos de recolección y ayuda al planeta ♻️</p>
-</div>
+<section id="lugares">
+  <h2>Lugares de recolección</h2>
+  <div id="map"></div>
+</section>
+
+<section id="servicios">
+  <h2>Servicios</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807">
+      <h3>Recolección</h3>
+      <p>Ubicamos puntos donde puedes llevar tu aceite usado.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581093588401-22d5f5c4d92d">
+      <h3>Educación</h3>
+      <p>Promovemos el reciclaje responsable del aceite.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1595433562696-5c7b4a03b0b0">
+      <h3>Impacto ambiental</h3>
+      <p>Reducimos la contaminación del agua.</p>
+    </div>
+  </div>
+</section>
+
+<section id="acerca">
+  <h2>Acerca de</h2>
+  <p>ReutiAceite es una iniciativa enfocada en la recolección y reutilización del aceite usado en Bogotá, especialmente en la zona de Bosa Porvenir. Buscamos generar conciencia ambiental y facilitar el acceso a puntos de reciclaje.</p>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Email: contacto@reutiaceite.com</p>
+  <p>Teléfono: 300 000 0000</p>
+</section>
+
+<footer>
+  <p>© 2026 ReutiAceite</p>
+</footer>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var map = L.map('map').setView([4.7110, -74.0721], 12);
+  var map = L.map('map').setView([4.629, -74.184], 14); // Bosa Porvenir
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
   var puntos = [
-    { coords: [4.7110, -74.0721], texto: "Punto Centro", zona: "Centro" },
-    { coords: [4.65, -74.1], texto: "Punto Sur", zona: "Sur" },
-    { coords: [4.75, -74.05], texto: "Punto Norte", zona: "Norte" }
+    { coords: [4.629, -74.184], texto: "Punto Principal - Bosa Porvenir" },
+    { coords: [4.631, -74.182], texto: "Punto Colegio cercano" },
+    { coords: [4.627, -74.186], texto: "Punto Barrio vecino" }
   ];
 
-  var markers = [];
-
-  function cargarPuntos(lista) {
-    markers.forEach(m => map.removeLayer(m));
-    markers = [];
-
-    lista.forEach(p => {
-      var marker = L.marker(p.coords).addTo(map)
-        .bindPopup(p.texto);
-      markers.push(marker);
-    });
-  }
-
-  function filtrar(zona) {
-    var filtrados = puntos.filter(p => p.zona === zona);
-    cargarPuntos(filtrados);
-  }
-
-  function mostrarTodos() {
-    cargarPuntos(puntos);
-  }
-
-  // Cargar todos al inicio
-  cargarPuntos(puntos);
+  puntos.forEach(p => {
+    L.marker(p.coords).addTo(map).bindPopup(p.texto);
+  });
 </script>
 
 </body>
