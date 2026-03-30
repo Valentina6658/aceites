@@ -9,141 +9,82 @@
     html { scroll-behavior: smooth; }
     body { margin:0; font-family:'Segoe UI',sans-serif; background:#f0f2f5; }
     header { background:linear-gradient(135deg,#1b5e20,#43a047); color:white; text-align:center; padding:40px; }
-    header img { height:70px; }
-    nav { background:#2e7d32; padding:12px; text-align:center; position:sticky; top:0; z-index:1000; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; cursor:pointer; }
+    nav { background:#2e7d32; padding:12px; text-align:center; position:sticky; top:0; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
     section { padding:60px 20px; }
-    h2 { text-align:center; margin-bottom:30px; }
     .hero { background:url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1') center/cover; color:white; text-align:center; padding:100px 20px; }
-    .hero p { max-width:700px; margin:auto; font-size:18px; }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
-    .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,0.2); transition:0.3s; }
-    .card:hover { transform:translateY(-5px); }
+    .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,0.2); cursor:pointer; transition:0.3s; }
+    .card:hover { transform:scale(1.03); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card div { padding:20px; }
     #map { height:450px; border-radius:15px; }
-    footer { background:#1b5e20; color:white; text-align:center; padding:20px; }
-    form { max-width:500px; margin:auto; display:flex; flex-direction:column; gap:10px; }
-    input, textarea, button { padding:12px; border-radius:8px; border:1px solid #ccc; }
-    button { background:#2e7d32; color:white; border:none; cursor:pointer; font-weight:bold; }
-    .cta { text-align:center; margin-top:20px; }
-    .cta button { font-size:16px; padding:15px 25px; }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png">
   <h1>ReutiAceite</h1>
-  <p>Soluciones sostenibles para el manejo de aceites usados</p>
 </header>
 
 <nav>
-  <a onclick="irA('inicio')">Inicio</a>
-  <a onclick="irA('servicios')">Servicios</a>
-  <a onclick="irA('mapa')">Mapa</a>
-  <a onclick="irA('tratamiento')">Tratamiento</a>
-  <a onclick="irA('contacto')">Contacto</a>
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#tratamiento">Tratamiento</a>
 </nav>
 
 <section id="inicio" class="hero">
-  <h2>🌱 ¡Bienvenido a ReutiAceite!</h2>
-  <p>Aquí transformamos el cuidado del medio ambiente en una acción fácil y accesible. Explora el mapa, encuentra puntos cercanos y contribuye al cambio.
-  <br><br>Cada gota cuenta.</p>
-  <div class="cta">
-    <button onclick="irA('contacto')">Solicitar recolección</button>
-  </div>
+  <h2>🌱 Bienvenido a ReutiAceite</h2>
+  <p>Haz clic en cualquier servicio para conocer más detalles</p>
 </section>
 
 <section id="servicios">
-  <h2>Servicios Inteligentes</h2>
+  <h2>Servicios</h2>
   <div class="grid">
-    <div class="card" onclick="irA('mapa')">
+
+    <div class="card" onclick="window.location.href='recoleccion.html'">
       <img src="https://images.unsplash.com/photo-1581093588401-22d5f5c4d92d">
       <div>
-        <h3>🚛 Recolección programada</h3>
-        <p>Haz clic para ver puntos de recolección disponibles.</p>
+        <h3>Recolección</h3>
+        <p>Haz clic para ver cómo funciona</p>
       </div>
     </div>
-    <div class="card" onclick="irA('contacto')">
+
+    <div class="card" onclick="window.location.href='tratamiento-servicio.html'">
       <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807">
       <div>
-        <h3>🏭 Tratamiento especializado</h3>
-        <p>Haz clic para inscribirte al servicio.</p>
+        <h3>Tratamiento</h3>
+        <p>Haz clic para ver el proceso</p>
       </div>
     </div>
-    <div class="card" onclick="irA('tratamiento')">
-      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
-      <div>
-        <h3>📊 Impacto ambiental</h3>
-        <p>Haz clic para conocer el proceso de transformación.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="mapa">
-  <h2>📍 Puntos inteligentes de recolección</h2>
-  <div id="map"></div>
+  </div>
 </section>
 
 <section id="tratamiento">
-  <h2>♻️ Transformación del aceite</h2>
+  <h2>Transformación del aceite</h2>
   <div class="grid">
-    <div class="card">
+
+    <div class="card" onclick="window.location.href='biocombustible.html'">
       <img src="https://images.unsplash.com/photo-1602526219040-7d6d1a9f3e1d">
       <div>
         <h3>Biocombustible</h3>
-        <p>Convertimos residuos en energía limpia reduciendo emisiones.</p>
+        <p>Haz clic para conocer el proceso</p>
       </div>
     </div>
-    <div class="card">
+
+    <div class="card" onclick="window.location.href='jabones.html'">
       <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
       <div>
         <h3>Jabones ecológicos</h3>
-        <p>Producción de productos biodegradables.</p>
+        <p>Haz clic para conocer el proceso</p>
       </div>
     </div>
+
   </div>
 </section>
 
-<section id="contacto">
-  <h2>📩 Solicita el servicio</h2>
-  <form onsubmit="enviarFormulario(event)">
-    <input type="text" placeholder="Nombre" required>
-    <input type="email" placeholder="Correo" required>
-    <textarea placeholder="Dirección o mensaje"></textarea>
-    <button>Enviar solicitud</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 ReutiAceite | Innovación ambiental</p>
-</footer>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  function irA(seccion){
-    document.getElementById(seccion).scrollIntoView({behavior:'smooth'});
-  }
-
-  var map = L.map('map').setView([4.6285, -74.185], 15);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-  var puntos = [
-    { coords:[4.6285,-74.185], texto:"Universidad Distrital" },
-    { coords:[4.6292,-74.184], texto:"Parque cercano" },
-    { coords:[4.6278,-74.186], texto:"Zona residencial" },
-    { coords:[4.6302,-74.1835], texto:"Comercio local" },
-    { coords:[4.628,-74.187], texto:"Punto comunitario" }
-  ];
-
-  puntos.forEach(p=>L.marker(p.coords).addTo(map).bindPopup(p.texto));
-
-  function enviarFormulario(e){
-    e.preventDefault();
-    alert("Solicitud enviada (simulación)");
-  }
 </script>
 
 </body>
