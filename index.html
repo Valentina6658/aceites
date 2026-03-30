@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReutiAceite</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+    header { background: #2e7d32; color: white; padding: 15px; text-align: center; }
+    header img { height: 60px; display:block; margin: 0 auto 10px; }
+    #map { height: 70vh; width: 100%; }
+    .info { padding: 15px; text-align: center; }
+    .controls { text-align:center; margin:10px; }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #4caf50;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover { background: #388e3c; }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Reemplaza src por tu logo descargado -->
+  <img src="logo.png" alt="ReutiAceite Logo">
+  <h1>ReutiAceite</h1>
+  <p>Encuentra puntos de recolección de aceite usado cerca de ti</p>
+</header>
+
+<div class="controls">
+  <button onclick="mostrarTodos()">Mostrar todos</button>
+  <button onclick="filtrar('Norte')">Norte</button>
+  <button onclick="filtrar('Sur')">Sur</button>
+  <button onclick="filtrar('Centro')">Centro</button>
+</div>
+
+<div id="map"></div>
+
+<div class="info">
+  <p>🌱 Explora el mapa, encuentra puntos de recolección y ayuda al planeta ♻️</p>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([4.7110, -74.0721], 12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  var puntos = [
+    { coords: [4.7110, -74.0721], texto: "Punto Centro", zona: "Centro" },
+    { coords: [4.65, -74.1], texto: "Punto Sur", zona: "Sur" },
+    { coords: [4.75, -74.05], texto: "Punto Norte", zona: "Norte" }
+  ];
+
+  var markers = [];
+
+  function cargarPuntos(lista) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+
+    lista.forEach(p => {
+      var marker = L.marker(p.coords).addTo(map)
+        .bindPopup(p.texto);
+      markers.push(marker);
+    });
+  }
+
+  function filtrar(zona) {
+    var filtrados = puntos.filter(p => p.zona === zona);
+    cargarPuntos(filtrados);
+  }
+
+  function mostrarTodos() {
+    cargarPuntos(puntos);
+  }
+
+  // Cargar todos al inicio
+  cargarPuntos(puntos);
+</script>
+
+</body>
+</html>
