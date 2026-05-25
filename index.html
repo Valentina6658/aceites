@@ -67,6 +67,9 @@
 
     .hero p{
       font-size:20px;
+      max-width:900px;
+      margin:auto;
+      line-height:1.7;
     }
 
     .grid{
@@ -103,6 +106,7 @@
       text-align:center;
       color:#1b5e20;
       margin-bottom:20px;
+      font-size:38px;
     }
 
     #map{
@@ -162,6 +166,82 @@
       background:#1b5e20;
     }
 
+    /* EDUCACION AMBIENTAL */
+
+    .educacion{
+      background:#ffffff;
+    }
+
+    .educacion-intro{
+      text-align:center;
+      max-width:1000px;
+      margin:auto;
+      margin-bottom:50px;
+    }
+
+    .educacion-intro p{
+      font-size:20px;
+      color:#444;
+      line-height:1.8;
+    }
+
+    .educacion-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .educacion-card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 6px 15px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .educacion-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .educacion-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .educacion-card div{
+      padding:25px;
+    }
+
+    .educacion-card h3{
+      color:#1b5e20;
+      margin-bottom:15px;
+    }
+
+    .educacion-card p{
+      color:#444;
+      line-height:1.7;
+    }
+
+    .frase-impacto{
+      margin-top:60px;
+      background:linear-gradient(135deg,#1b5e20,#43a047);
+      color:white;
+      padding:50px;
+      border-radius:20px;
+      text-align:center;
+    }
+
+    .frase-impacto h3{
+      font-size:38px;
+      margin-bottom:20px;
+    }
+
+    .frase-impacto p{
+      font-size:22px;
+      line-height:1.8;
+    }
+
     footer{
       background:#1b5e20;
       color:white;
@@ -186,6 +266,7 @@
   <a href="#tratamiento">Tratamiento</a>
   <a href="#mapa">Mapa</a>
   <a href="#registro">Registro</a>
+  <a href="#educacion">Educación Ambiental</a>
 </nav>
 
 <section id="inicio" class="hero">
@@ -193,15 +274,17 @@
   <h2>🌱 Bienvenido a ReutiAceite</h2>
 
   <p>
-    Conoce cómo reutilizamos el aceite usado y encuentra
-    puntos de recolección en Bosa Porvenir.
+    ReutiAceite es una iniciativa enfocada en la recolección y gestión responsable
+    del aceite de cocina usado en Bosa Porvenir. Nuestro objetivo es reducir
+    la contaminación ambiental y promover la reutilización sostenible del aceite
+    mediante procesos ecológicos y educación ambiental.
   </p>
 
 </section>
 
 <section id="servicios">
 
-  <h2>Servicios</h2>
+  <h2>♻️ Servicios</h2>
 
   <div class="grid">
 
@@ -210,8 +293,11 @@
       <img src="https://images.unsplash.com/photo-1581093588401-22d5f5c4d92d">
 
       <div>
-        <h3>♻️ Recolección</h3>
-        <p>Conoce cómo recolectamos aceite usado de manera segura.</p>
+        <h3>Recolección</h3>
+        <p>
+          Conoce cómo recolectamos aceite usado de manera segura
+          y ambientalmente responsable.
+        </p>
       </div>
 
     </div>
@@ -221,8 +307,11 @@
       <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807">
 
       <div>
-        <h3>🧪 Tratamiento</h3>
-        <p>Aprende el proceso de transformación del aceite.</p>
+        <h3>Tratamiento</h3>
+        <p>
+          Aprende el proceso de transformación y aprovechamiento
+          del aceite vegetal usado.
+        </p>
       </div>
 
     </div>
@@ -233,7 +322,7 @@
 
 <section id="tratamiento">
 
-  <h2>Transformación del aceite</h2>
+  <h2>🧪 Transformación del aceite</h2>
 
   <div class="grid">
 
@@ -243,7 +332,10 @@
 
       <div>
         <h3>🔥 Biocombustible</h3>
-        <p>Descubre cómo el aceite usado puede convertirse en energía.</p>
+        <p>
+          Descubre cómo el aceite usado puede convertirse
+          en una fuente de energía sostenible.
+        </p>
       </div>
 
     </div>
@@ -254,7 +346,10 @@
 
       <div>
         <h3>🧼 Jabones ecológicos</h3>
-        <p>Conoce el proceso de elaboración de jabones sostenibles.</p>
+        <p>
+          Conoce cómo reutilizamos el aceite usado
+          para crear productos sostenibles.
+        </p>
       </div>
 
     </div>
@@ -270,8 +365,6 @@
   <div id="map"></div>
 
 </section>
-
-<!-- NUEVA SECCIÓN -->
 
 <section id="registro">
 
@@ -332,8 +425,6 @@
         <textarea name="Observaciones" rows="5"></textarea>
       </div>
 
-      <!-- Configuración FormSubmit -->
-
       <input type="hidden" name="_captcha" value="false">
 
       <input type="hidden" name="_next" value="https://valentina6658.github.io/aceites/">
@@ -343,6 +434,147 @@
       </button>
 
     </form>
+
+  </div>
+
+</section>
+
+<section id="educacion" class="educacion">
+
+  <div class="educacion-intro">
+
+    <h2>🌍 Educación Ambiental</h2>
+
+    <p>
+      El aceite de cocina usado es uno de los residuos más contaminantes
+      cuando no se dispone adecuadamente. Muchas personas lo arrojan
+      al lavaplatos o alcantarillado sin conocer las graves consecuencias
+      ambientales que esto genera sobre el agua, los ecosistemas y la salud pública.
+    </p>
+
+  </div>
+
+  <div class="educacion-grid">
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1511497584788-876760111969">
+
+      <div>
+
+        <h3>💧 Contaminación del agua</h3>
+
+        <p>
+          Un solo litro de aceite usado puede contaminar miles de litros
+          de agua. Cuando llega a ríos y quebradas, forma una capa superficial
+          que impide el intercambio de oxígeno y afecta gravemente la vida acuática.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1">
+
+      <div>
+
+        <h3>🚫 Daños al alcantarillado</h3>
+
+        <p>
+          El aceite vertido en los desagües se solidifica y genera obstrucciones
+          en las tuberías, ocasionando daños en los sistemas de alcantarillado
+          y altos costos de mantenimiento urbano.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66">
+
+      <div>
+
+        <h3>🐟 Impacto ecológico</h3>
+
+        <p>
+          La acumulación de grasas y aceites en cuerpos de agua altera
+          los ecosistemas naturales, perjudicando peces, microorganismos
+          y procesos biológicos esenciales.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+
+      <div>
+
+        <h3>♻️ Reutilización responsable</h3>
+
+        <p>
+          El aceite usado puede transformarse en biocombustibles,
+          jabones ecológicos y otros productos sostenibles,
+          promoviendo la economía circular.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+      <div>
+
+        <h3>🏙️ Responsabilidad ciudadana</h3>
+
+        <p>
+          Restaurantes, hogares y comercios tienen un papel fundamental
+          en la protección del medio ambiente mediante una correcta
+          gestión del aceite vegetal usado.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="educacion-card">
+
+      <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7">
+
+      <div>
+
+        <h3>🌱 Futuro sostenible</h3>
+
+        <p>
+          La educación ambiental fomenta acciones responsables
+          que ayudan a construir ciudades más limpias,
+          sostenibles y comprometidas con el planeta.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="frase-impacto">
+
+    <h3>⚠️ El aceite que desechas hoy puede contaminar el agua del mañana</h3>
+
+    <p>
+      Gestionar correctamente el aceite usado protege el medio ambiente,
+      reduce la contaminación y contribuye a una cultura de sostenibilidad
+      para las futuras generaciones.
+    </p>
 
   </div>
 
