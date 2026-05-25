@@ -112,6 +112,56 @@
       box-shadow:0 6px 15px rgba(0,0,0,0.2);
     }
 
+    /* FORMULARIO */
+
+    .form-container{
+      max-width:800px;
+      margin:auto;
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .form-group{
+      margin-bottom:20px;
+    }
+
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:bold;
+      color:#1b5e20;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      font-size:16px;
+      box-sizing:border-box;
+    }
+
+    .btn{
+      background:#2e7d32;
+      color:white;
+      border:none;
+      padding:15px 25px;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+      width:100%;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:#1b5e20;
+    }
+
     footer{
       background:#1b5e20;
       color:white;
@@ -135,6 +185,7 @@
   <a href="#servicios">Servicios</a>
   <a href="#tratamiento">Tratamiento</a>
   <a href="#mapa">Mapa</a>
+  <a href="#registro">Registro</a>
 </nav>
 
 <section id="inicio" class="hero">
@@ -217,6 +268,83 @@
   <h2>📍 Puntos de Recolección en Bosa Porvenir</h2>
 
   <div id="map"></div>
+
+</section>
+
+<!-- NUEVA SECCIÓN -->
+
+<section id="registro">
+
+  <h2>🏪 Registro de Restaurantes</h2>
+
+  <div class="form-container">
+
+    <form action="https://formsubmit.co/parramartinezbrayanstiven8@gmail.com" method="POST">
+
+      <div class="form-group">
+        <label>Nombre del restaurante</label>
+        <input type="text" name="Restaurante" required>
+      </div>
+
+      <div class="form-group">
+        <label>Nombre del responsable</label>
+        <input type="text" name="Responsable" required>
+      </div>
+
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" name="Correo" required>
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono de contacto</label>
+        <input type="tel" name="Telefono" required>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección del establecimiento</label>
+        <input type="text" name="Direccion" required>
+      </div>
+
+      <div class="form-group">
+        <label>Cantidad aproximada de aceite generado</label>
+
+        <select name="Cantidad">
+          <option>Menos de 10 litros</option>
+          <option>10 - 30 litros</option>
+          <option>30 - 50 litros</option>
+          <option>Más de 50 litros</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Frecuencia de recolección</label>
+
+        <select name="Frecuencia">
+          <option>Semanal</option>
+          <option>Quincenal</option>
+          <option>Mensual</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Observaciones adicionales</label>
+        <textarea name="Observaciones" rows="5"></textarea>
+      </div>
+
+      <!-- Configuración FormSubmit -->
+
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="hidden" name="_next" value="https://valentina6658.github.io/aceites/">
+
+      <button type="submit" class="btn">
+        Solicitar Recolección ♻️
+      </button>
+
+    </form>
+
+  </div>
 
 </section>
 
